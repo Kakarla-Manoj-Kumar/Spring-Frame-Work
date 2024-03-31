@@ -1,0 +1,86 @@
+Application Context
+---------------------------
+1).We're using ApplicationContext instead of BeanFactory. ApplicationContext is a more feature-rich interface that extends BeanFactory.
+
+2). We're instantiating ApplicationContext using FileSystemXmlApplicationContext, which loads bean definitions from an XML file in the file system.
+
+3).We're accessing the bean from the ApplicationContext using the getBean() method.
+
+4).Make sure you have the necessary Spring dependencies configured in your project to use ApplicationContext. You typically include the required Spring dependencies in your project's build configuration file (e.g., pom.xml for Maven or build.gradle for Gradle).
+
+
+-----------------
+App.java
+-----------------
+package com.kakarla.first_ApplicationContext;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        First obj =(First)context.getBean("first");
+        
+        obj.Walk();
+    }
+}
+--------------
+First.java
+--------------
+package com.kakarla.first_ApplicationContext;
+
+public class First {
+
+	public void Walk() {
+		System.out.println("Im Walking.....");
+	}
+}
+-------------
+pom.xml
+-------------
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.kakarla</groupId>
+  <artifactId>first_ApplicationContext</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>first_ApplicationContext</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>6.1.4</version>
+</dependency>
+  </dependencies>
+</project>
+
+-------------------------
+spring.xml
+-------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id ="first" class="com.kakarla.first_ApplicationContext.First"></bean>
+
+</beans>

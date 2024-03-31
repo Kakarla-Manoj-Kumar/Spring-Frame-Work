@@ -1,0 +1,21 @@
+----------------------------------------------
+Spring Frame Work Pre Requisites
+----------------------------------------------
+Java
+Data Base Connectivity
+Servlet
+Jsp
+Maven
+ORM(Object Relational Mapping)
+
+Core Java:(OOPs, Exception Handling, Threads, Loops etc)
+JDBC
+Tomcat
+Hibernate/iBatis/Jpa
+
+------------------------------
+Software Requirement
+------------------------------
+IDE(Eclipse/STS/Intellij/NetBeans)
+
+STS-->unzip zip file-->open unzip file-->open sts application-->create a maven or gradle project

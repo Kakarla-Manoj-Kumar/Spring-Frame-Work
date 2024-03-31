@@ -1,0 +1,52 @@
+Autowire
+-------------
+Autowiring in Spring simplifies dependency injection by automatically wiring beans together
+
+                                                        (or)
+Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection.
+
+
+Advantage of Autowiring
+--------------------------------
+It requires the less code because we don't need to write the code to inject the dependency explicitly.
+
+Disadvantage of Autowiring
+------------------------------------
+No control of programmer.
+It can't be used for primitive and string values.
+
+
+Autowiring Modes
+-------------------------------
+1).no:
+----------
+
+This is the default autowiring mode.
+It means no autowiring is done by default.
+Dependencies must be explicitly wired using <property> or <constructor-arg> tags in XML configuration or @Autowired annotation in Java configuration.
+
+2).byName:
+-----------------
+
+In this mode, Spring looks for a bean with the same name as the property to be autowired.
+It internally calls the setter method of the property with the corresponding bean.
+
+3).byType:
+-----------------
+
+In this mode, Spring looks for a bean of the same type as the property to be autowired.
+Property name and bean name can be different.
+It internally calls the setter method of the property with the corresponding bean.
+
+4).constructor:
+--------------------
+
+In this mode, Spring looks for a constructor in the class that matches the type of the constructor argument.
+It calls the constructor with the largest number of arguments matching the types of the beans defined in the Spring container.
+
+5).autodetect:
+--------------------
+
+This mode was deprecated since Spring 3. It's not recommended to use it in new projects.
+
+

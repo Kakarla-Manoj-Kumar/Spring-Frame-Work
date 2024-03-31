@@ -1,0 +1,12 @@
+---------------------------------
+Singleton V/S prototype
+---------------------------------
+
+
+Singleton: One instance shared by all.
+-------------
+
+Prototype: New instance every time.
+------------
+
+

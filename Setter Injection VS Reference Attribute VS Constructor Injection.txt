@@ -1,0 +1,23 @@
+Setter Injection VS Reference Attribute VS Constructor Injection
+-------------------------------------------------------------------------------------- 
+
+Setter Injection:
+---------------------
+Setter injection is a way to provide dependencies to a class through setter methods.
+Dependencies are injected into the object after the object is instantiated
+
+<property name= "age" value ="10"></property>
+
+Reference Attribute:
+--------------------------------
+In Spring Framework, when defining beans in XML or using annotations, you often use attributes to specify dependencies between beans. These attributes may refer to other beans using their identifiers (IDs).
+
+<property name="userDao" ref="userDao"></property>
+
+Constructor Injection:
+------------------------------
+
+Constructor injection involves providing dependencies to a class through its constructor.
+Dependencies are injected into the object at the time of instantiation.
+
+<constructor-arg value="12"></constructor-arg>

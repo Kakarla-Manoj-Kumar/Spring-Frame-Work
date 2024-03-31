@@ -1,0 +1,89 @@
+BeanFactory
+-----------------
+BeanFactory is a fundamental interface in the Spring Framework for managing beans within an application context
+
+The XmlBeanFactory class has been deprecated since Spring 3.1 and is not recommended for use anymore. Instead, you should use ApplicationContext, which is a more powerful and flexible way to manage beans in Spring applications.
+
+Note:Before using Bean Factory make sure that Add the dependency of Spring Context before version 3.1.
+
+
+-------------
+App.java
+-------------
+package com.kakarla.first;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.FileSystemResource;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
+    	
+    	First obj =(First) factory.getBean("first");
+    	obj.run();
+    }
+}
+
+--------------
+First.java
+--------------
+package com.kakarla.first;
+
+public class First {
+
+	public void run() {
+		
+		System.out.println("Im Running.....");
+	}
+
+}
+
+-------------
+pom.xml
+------------
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.kakarla</groupId>
+  <artifactId>first</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>first</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>2.5.5</version>
+</dependency>
+  </dependencies>
+</project>
+
+
+--------------
+spring.xml
+--------------
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id ="first" class="com.kakarla.first.First "></bean>
+
+</beans>
